@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfApplication1\WpfApplication1.csproj", "{0BAD432A-A083-4E3A-856A-702138A64846}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6FAFF6DA-CD5E-4050-9352-8C85814A7B0B}"
+	ProjectSection(SolutionItems) = preProject
+		E:\Libraries\Pictures\SC_logo_tag_pms_color.jpg = E:\Libraries\Pictures\SC_logo_tag_pms_color.jpg
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BAD432A-A083-4E3A-856A-702138A64846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BAD432A-A083-4E3A-856A-702138A64846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BAD432A-A083-4E3A-856A-702138A64846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BAD432A-A083-4E3A-856A-702138A64846}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
