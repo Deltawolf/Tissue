@@ -29,19 +29,19 @@ namespace Tissue_Dashboard
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Ta.TissueTracker.oSheet.Rows[3].Insert();
+            Ta.TissueTracker.archivalTracker.Rows[3].Insert();
             string patientName = patientText.Text;
             string accessionText1 = accessionText.Text;
             string requestorText1 = requestorText.Text;
             string physicianText1 = physicianText.Text ;
             string enrollmentText1 = enrollmentText.Text;
             string dateofbirthText1 = dateofbirthText.Text;
-            Ta.TissueTracker.oSheet.Cells[3, 1].value = patientName;
-            Ta.TissueTracker.oSheet.Cells[3, 2].value = accessionText1;
-            Ta.TissueTracker.oSheet.Cells[3, 3].value = requestorText1;
-            Ta.TissueTracker.oSheet.Cells[3, 4].value = physicianText1;
-            Ta.TissueTracker.oSheet.Cells[3, 5].value = enrollmentText1;
-            Ta.TissueTracker.oSheet.Cells[3, 6].value = dateofbirthText1;
+            Ta.TissueTracker.archivalTracker.Cells[3, 1].value = patientName;
+            Ta.TissueTracker.archivalTracker.Cells[3, 2].value = accessionText1;
+            Ta.TissueTracker.archivalTracker.Cells[3, 3].value = requestorText1;
+            Ta.TissueTracker.archivalTracker.Cells[3, 4].value = physicianText1;
+            Ta.TissueTracker.archivalTracker.Cells[3, 5].value = enrollmentText1;
+            Ta.TissueTracker.archivalTracker.Cells[3, 6].value = dateofbirthText1;
 
             Window parentwin = Window1.GetWindow(this);
             parentwin.Close();

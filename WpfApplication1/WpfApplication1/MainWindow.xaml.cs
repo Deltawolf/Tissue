@@ -44,6 +44,7 @@ namespace Tissue_Dashboard
             public Window main_window { get; set; }
             public Excel.Application oXL { get; set; }
             public Excel.Workbook oWB { get; set; }
+            public Excel.Worksheets oWS { get; set; }
             public Excel.Worksheet archivalTracker { get; set; }
             public Excel.Worksheet freshTracker { get; set; }
             public Excel.Worksheet sourceTracker { get; set; }
@@ -67,10 +68,17 @@ namespace Tissue_Dashboard
             internal void PrepareTheChopper()
             {
                 oXL = new Excel.Application();
-                string myWorkbook = @"C:\Users\Zach\Desktop\New1.xlsx";
-                oWB = oXL.Workbooks.Open(myWorkbook);
-                oSheet = (Excel._Worksheet)oWB.ActiveSheet;
 
+                string myWorkbook = @"C:\Users\Zach\Desktop\New1.xlsx";
+                bool wbOpened = ((Excel.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Excel.Application")).Workbooks.Cast<Excel.Workbook>().FirstOrDefault(x => x.Name == myWorkbook) != null;
+                if (wbOpened == false)
+                    oWB = oXL.Workbooks.Open(myWorkbook);
+                else
+                {
+                    MessageBox.Show("Please close the tracker before continuing.", "Close the tracker!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Environment.Exit(0);
+                }
+                archivalTracker = oWB.Worksheets[1];
                 oXL.Visible = true;
                 oXL.UserControl = true;
             }
