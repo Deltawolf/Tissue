@@ -30,31 +30,25 @@ namespace Tissue_Dashboard
         public MainWindow()
         {
             InitializeComponent();
-            TheTracker.TissueTracker.PrepareTheChopper();
+            TheTracker.TissueTracker.ExcelStartup();
+            this.Closed += new EventHandler(MainWindow_Closed); //This is an event used to save and close excel
         }
-
-        //private void InitializeComponent()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
 
         internal class TheTracker
         {
             public Window main_window { get; set; }
             public Excel.Application oXL { get; set; }
             public Excel.Workbook oWB { get; set; }
-            public Excel.Worksheets oWS { get; set; }
-            public Excel.Worksheet archivalTracker { get; set; }
-            public Excel.Worksheet freshTracker { get; set; }
-            public Excel.Worksheet sourceTracker { get; set; }
-            public Excel._Worksheet oSheet { get; set; }
+            public Excel.Worksheets oWS { get; set; } //This is a collection
             public Excel.Range oRng { get; set; }
-
+            public Excel._Worksheet oSheet { get; set; }
+            public Excel.Worksheet archivalTracker { get; private set;} //Worksheet object        
+            public Excel.Worksheet freshTracker { get; private set; } //Worksheet object
+            public Excel.Worksheet sourceTracker { get; private set; } //Worksheet object
             private static TheTracker Tissuetracker = new TheTracker();
             private TheTracker() { }
 
-            internal static TheTracker TissueTracker
+            internal static TheTracker TissueTracker //This verifies we have only one instantiated TissueTracker class and assignments.
             {
                 get
                 {
@@ -65,33 +59,85 @@ namespace Tissue_Dashboard
                 }
             }
 
-            internal void PrepareTheChopper()
+            internal void ExcelStartup()
             {
                 oXL = new Excel.Application();
 
                 string myWorkbook = @"C:\Users\Zach\Desktop\New1.xlsx";
-                bool wbOpened = ((Excel.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Excel.Application")).Workbooks.Cast<Excel.Workbook>().FirstOrDefault(x => x.Name == myWorkbook) != null;
-                if (wbOpened == false)
-                    oWB = oXL.Workbooks.Open(myWorkbook);
-                else
-                {
-                    MessageBox.Show("Please close the tracker before continuing.", "Close the tracker!", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Environment.Exit(0);
-                }
+                oWB = oXL.Workbooks.Open(myWorkbook);
+                
+                
+                //Set sheets by index. Show Excel workbook that we opened above
                 archivalTracker = oWB.Worksheets[1];
+                freshTracker = oWB.Worksheets[2];
+                sourceTracker = oWB.Worksheets[3];
                 oXL.Visible = true;
                 oXL.UserControl = true;
             }
         }
 
+
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
 
-            Window1 tissueRequest = new Window1();
+            Request_Window tissueRequest = new Request_Window(); //New Request Userform
             tissueRequest.Show();
             TheTracker.TissueTracker.main_window = this;
-            TheTracker.TissueTracker.main_window.Visibility = Visibility.Collapsed;
+            TheTracker.TissueTracker.main_window.Visibility = Visibility.Collapsed; //Hide Main Dashboard
         }
 
+        void MainWindow_Closed(object sender, EventArgs e) //Called in MainWindow()
+        {
+            TheTracker.TissueTracker.oWB.Save(); //if you don't save. Throws exception
+            TheTracker.TissueTracker.oWB.Close(0);
+            TheTracker.TissueTracker.oXL.Quit();
+        }
     }
 }
+
+//Attempting to detect and hook to an opened workbook to either close the previous one or read/write from it.
+/*bool wbOpened = ((Excel.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Excel.Application")).Workbooks.Cast<Excel.Workbook>().FirstOrDefault(x => x.Name == myWorkbook) != null;
+if (wbOpened == false)
+    oWB = oXL.Workbooks.Open(myWorkbook);
+else
+{
+    MessageBox.Show("Please close the tracker before continuing.", "Close the tracker!", MessageBoxButton.OK, MessageBoxImage.Error);
+    Environment.Exit(0);
+
+
+
+
+
+How do I append an extension variable to each object?
+Goal: TissueTracker.archivalTracker.PatientName = [rowx, 1]
+If I can append the variable, I can use a method to pass the values needed in. Research needed.
+
+public Excel.Worksheet archivalTracker
+{
+get
+
+{
+
+    Excel.Range PatientName = this.oRng.Cells[3, 1].value;
+    Excel.Range AccessionText = this.oRng.Cells[3, 2].value;
+    Excel.Range RequestorText = this.oRng.Cells[3, 3].value;
+    Excel.Range PhysicianText = this.oRng.Cells[3, 4].value;
+    Excel.Range EnrollmentText = this.oRng.Cells[3, 5].value;
+    Excel.Range DateofBirthText = this.oRng.Cells[3, 6].value;
+
+    if (something == oWB.Worksheets[1])
+        return something;
+    else
+        return oWB.Worksheets[1].something;
+}
+
+
+
+private set
+{
+    something = value;
+}
+
+} 
+
+}*/

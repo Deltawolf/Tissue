@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Excel = Microsoft.Office.Interop.Excel;
-using Ta = Tissue_Dashboard.MainWindow.TheTracker;
+using UsingTheTracker = Tissue_Dashboard.MainWindow.TheTracker;
 
 
 namespace Tissue_Dashboard
@@ -20,32 +20,26 @@ namespace Tissue_Dashboard
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Request_Window : Window
     {
-        internal Window1()
+        internal Request_Window()
         {
             InitializeComponent();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Ta.TissueTracker.archivalTracker.Rows[3].Insert();
-            string patientName = patientText.Text;
-            string accessionText1 = accessionText.Text;
-            string requestorText1 = requestorText.Text;
-            string physicianText1 = physicianText.Text ;
-            string enrollmentText1 = enrollmentText.Text;
-            string dateofbirthText1 = dateofbirthText.Text;
-            Ta.TissueTracker.archivalTracker.Cells[3, 1].value = patientName;
-            Ta.TissueTracker.archivalTracker.Cells[3, 2].value = accessionText1;
-            Ta.TissueTracker.archivalTracker.Cells[3, 3].value = requestorText1;
-            Ta.TissueTracker.archivalTracker.Cells[3, 4].value = physicianText1;
-            Ta.TissueTracker.archivalTracker.Cells[3, 5].value = enrollmentText1;
-            Ta.TissueTracker.archivalTracker.Cells[3, 6].value = dateofbirthText1;
+            UsingTheTracker.TissueTracker.archivalTracker.Rows[3].Insert();
+            UsingTheTracker.TissueTracker.archivalTracker.Cells[3, 1].value = patientText.Text; //Textbox value as Text. Exception occurrs without .Text
+            UsingTheTracker.TissueTracker.archivalTracker.Cells[3, 2].value = accessionText.Text; //Would like to house Cell reference for every field in one area. May need class or see if extension can be added to archivalTracker
+            UsingTheTracker.TissueTracker.archivalTracker.Cells[3, 3].value = requestorText.Text;
+            UsingTheTracker.TissueTracker.archivalTracker.Cells[3, 4].value = physicianText.Text;
+            UsingTheTracker.TissueTracker.archivalTracker.Cells[3, 5].value = enrollmentText.Text;
+            UsingTheTracker.TissueTracker.archivalTracker.Cells[3, 6].value = dateofbirthText.Text;
 
-            Window parentwin = Window1.GetWindow(this);
+            Window parentwin = Request_Window.GetWindow(this);
             parentwin.Close();
-            Ta.TissueTracker.main_window.Visibility = Visibility.Visible;
+            UsingTheTracker.TissueTracker.main_window.Visibility = Visibility.Visible;
             
 
         }
