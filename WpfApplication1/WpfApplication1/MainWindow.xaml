@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="Tissue Dashboard" Height="397" Width="655" BorderThickness="5" WindowStyle="None" Background="Transparent" ResizeMode="NoResize">
-  
-    
+
+
     <Grid Background="#FFE5EAEE" Cursor="Arrow">
-        
-        
+
+
         <Grid.Resources>
             <Style TargetType="{x:Type Label}">
                 <Setter Property="Foreground" Value="White"/>
@@ -23,8 +23,8 @@
                 </Style.Triggers>
             </Style>
         </Grid.Resources>
-        
-        
+
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="92*"/>
             <ColumnDefinition Width="9*"/>
@@ -33,50 +33,24 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        
-<!--#region Right Hand Content-->        
-<!--#region BrowserMain-->
-        <Frame x:Name="BrowserMain" Grid.Column="3" HorizontalAlignment="Left" Height="394" Margin="0,-5,0,0" VerticalAlignment="Top" Width="434">
-            <Frame.Content>
-                <Button Content="Request Tissue" Height="37" Width="139" Click="button_Click_1" BorderThickness="2" ToolTip="This is how you begin a tissue request!" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Left" Margin="18.166,45.833,0,0" VerticalAlignment="Top"/>
 
-            </Frame.Content>
-        </Frame>
-<!--#endregion-->
-<!--#region BrowserArchival-->
-    <Frame x:Name="BrowserArchival" Grid.Column="3" HorizontalAlignment="Left" Height="394" Margin="0,-5,0,0" VerticalAlignment="Top" Width="434">
-        <Frame.Content>
-            <Button Content="Request Archival" Height="37" Width="139" Click="button_Click_1" BorderThickness="2" ToolTip="This is how you begin a tissue request!" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Left" Margin="18.166,45.833,0,0" VerticalAlignment="Top"/>
-            </Frame.Content>
-    </Frame>
-<!--#endregion-->
-<!--#region BrowserFresh-->
-    <Frame x:Name="BrowserFresh" Grid.Column="3" HorizontalAlignment="Left" Height="394" Margin="0,-5,0,0" VerticalAlignment="Top" Width="434">
-        <Frame.Content>
-            <Button Content="Request Fresh" Height="37" Width="139" Click="button_Click_1" BorderThickness="2" ToolTip="This is how you begin a tissue request!" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Left" Margin="18.166,45.833,0,0" VerticalAlignment="Top"/>
-        </Frame.Content>
-    </Frame>
-<!--#endregion-->
-<!--#region BrowserReports-->
-    <Frame x:Name="BrowserReports" Grid.Column="3" HorizontalAlignment="Left" Height="394" Margin="0,-5,0,0" VerticalAlignment="Top" Width="434">
-        <Frame.Content>
-            <Button Content="Request Reports" Height="37" Width="139" Click="button_Click_1" BorderThickness="2" ToolTip="This is how you begin a tissue request!" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Left" Margin="18.166,45.833,0,0" VerticalAlignment="Top"/>
-        </Frame.Content>
-    </Frame>
-<!--#endregion-->
-<!--#endregion-->
-        
-        
-<!--#region Left Hand Elements-->
+        <!--#region BrowserMain-->
+        <Frame x:Name="BrowserMain" Grid.Column="3" HorizontalAlignment="Left" Height="387" VerticalAlignment="Top" Width="439" NavigationUIVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Disabled" Source="/WpfApplication1;component/MainPage.xaml"/>
+        <!--#endregion-->
+
+
+
+        <!--#region Left Hand Elements-->
         <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="309" Margin="54,0,0,0" VerticalAlignment="Top" Width="0"/>
         <Frame x:Name="frame" Content="" HorizontalAlignment="Left" Height="389" VerticalAlignment="Top" Width="204" Background="#2C3E50" NavigationUIVisibility="Hidden" Focusable="False" Margin="-1,0,0,0" Grid.ColumnSpan="3"/>
-        <Label x:Name="Archival_Frame" Content="Archival" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="-33.88,134,43.274,0" Width="103" FontSize="18" Foreground="White" Height="40" Grid.Column="1" />
-        <Label x:Name="Fresh_Frame" Content="Fresh" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="-32.88,200,42.274,0" Width="103" FontSize="18" Foreground="White" Height="40" Grid.Column="1"/>
+        <Label x:Name="Archival_Frame" Content="Archival" MouseLeftButtonDown="Archival_Frame_MouseClick" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="-33.88,134,43.274,0" Width="103" FontSize="18" Foreground="White" Height="40" Grid.Column="1" />
+        <Label x:Name="Fresh_Frame" Content="Fresh" MouseLeftButtonDown="Fresh_Frame_MouseClick" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="-32.88,200,42.274,0" Width="103" FontSize="18" Foreground="White" Height="40" Grid.Column="1"/>
         <Image x:Name="image" Height="53" VerticalAlignment="Top" Grid.ColumnSpan="3" Source="SC_logo_tag_pms_color.jpg" Stretch="UniformToFill" Margin="-1,0,0,0"/>
-        <Label x:Name="Reports_Frame" Content="Reports" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="-32.88,266,42.274,0" Width="103" FontSize="18" Foreground="White" Height="40" Grid.Column="1"/>
+        <Label x:Name="Reports_Frame" Content="Reports" MouseLeftButtonDown="Reports_Frame_MouseClick" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="-32.88,266,42.274,0" Width="103" FontSize="18" Foreground="White" Height="40" Grid.Column="1"/>
         <Label x:Name="Main_Frame" Content="Main" MouseLeftButtonDown="Main_Frame_MouseClick" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-33.88,74,42.274,0" Width="104" FontSize="18" Foreground="White" Height="40" Grid.ColumnSpan="2" Grid.Column="1"/>
-<!--#endregion-->
-    
+        <Button Content="Request Tissue" Height="37" Width="139" Click="button_Click_1" BorderThickness="2" ToolTip="This is how you begin a tissue request!" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Left" Margin="31,329,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <!--#endregion-->
+
     </Grid>
 
 </Window>

@@ -63,6 +63,25 @@ namespace Tissue_Dashboard
         private void Main_Frame_MouseClick(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("You clicked on Main");
+            BrowserMain.Source = new Uri("MainPage.xaml", UriKind.RelativeOrAbsolute);
+        }
+
+        private void Archival_Frame_MouseClick(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("You clicked on Archival");
+            BrowserMain.Source = new Uri("ArchivalPage.xaml", UriKind.RelativeOrAbsolute);
+        }
+
+        private void Fresh_Frame_MouseClick(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("You clicked on Fresh");
+            BrowserMain.Source = new Uri("FreshPage.xaml", UriKind.RelativeOrAbsolute);
+        }
+
+        private void Reports_Frame_MouseClick(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("You clicked on Reports");
+            BrowserMain.Source = new Uri("ReportsPage.xaml", UriKind.RelativeOrAbsolute);
         }
 
 
@@ -74,7 +93,7 @@ namespace Tissue_Dashboard
         }
     }
 
-
+//Excel Instance Class
     internal class TheTracker
     {
         public Window main_window { get; set; }
