@@ -22,7 +22,7 @@ namespace Tissue_Dashboard
     /// </summary>
     /// 
 
-
+//Main Functions and Objects
     public partial class MainWindow : Window
     {
 
@@ -32,50 +32,10 @@ namespace Tissue_Dashboard
             InitializeComponent();
             TheTracker.TissueTracker.ExcelStartup();
             this.Closed += new EventHandler(MainWindow_Closed); //This is an event used to save and close excel
+            MouseDown += Window_MouseDown;
         }
 
-        internal class TheTracker
-        {
-            public Window main_window { get; set; }
-            public Excel.Application oXL { get; set; }
-            public Excel.Workbook oWB { get; set; }
-            public Excel.Worksheets oWS { get; set; } //This is a collection
-            public Excel.Range oRng { get; set; }
-            public Excel._Worksheet oSheet { get; set; }
-            public Excel.Worksheet archivalTracker { get; private set;} //Worksheet object        
-            public Excel.Worksheet freshTracker { get; private set; } //Worksheet object
-            public Excel.Worksheet sourceTracker { get; private set; } //Worksheet object
-            private static TheTracker Tissuetracker = new TheTracker();
-            private TheTracker() { }
-
-            internal static TheTracker TissueTracker //This verifies we have only one instantiated TissueTracker class and assignments.
-            {
-                get
-                {
-                    if (Tissuetracker == null)
-                        Tissuetracker = new TheTracker();
-
-                    return Tissuetracker;
-                }
-            }
-
-            internal void ExcelStartup()
-            {
-                oXL = new Excel.Application();
-
-                string myWorkbook = @"C:\Users\Zach\Desktop\New1.xlsx";
-                oWB = oXL.Workbooks.Open(myWorkbook);
-                
-                
-                //Set sheets by index. Show Excel workbook that we opened above
-                archivalTracker = oWB.Worksheets[1];
-                freshTracker = oWB.Worksheets[2];
-                sourceTracker = oWB.Worksheets[3];
-                oXL.Visible = true;
-                oXL.UserControl = true;
-            }
-        }
-
+        
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -86,6 +46,26 @@ namespace Tissue_Dashboard
             TheTracker.TissueTracker.main_window.Visibility = Visibility.Collapsed; //Hide Main Dashboard
         }
 
+        
+
+    }
+
+//Events handled in Main
+    public partial class MainWindow : Window
+    {
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
+
+
+        private void Main_Frame_MouseClick(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("You clicked on Main");
+        }
+
+
         void MainWindow_Closed(object sender, EventArgs e) //Called in MainWindow()
         {
             TheTracker.TissueTracker.oWB.Save(); //if you don't save. Throws exception
@@ -93,7 +73,53 @@ namespace Tissue_Dashboard
             TheTracker.TissueTracker.oXL.Quit();
         }
     }
+
+
+    internal class TheTracker
+    {
+        public Window main_window { get; set; }
+        public Excel.Application oXL { get; set; }
+        public Excel.Workbook oWB { get; set; }
+        public Excel.Worksheets oWS { get; set; } //This is a collection
+        public Excel.Range oRng { get; set; }
+        public Excel._Worksheet oSheet { get; set; }
+        public Excel.Worksheet archivalTracker { get; private set; } //Worksheet object        
+        public Excel.Worksheet freshTracker { get; private set; } //Worksheet object
+        public Excel.Worksheet sourceTracker { get; private set; } //Worksheet object
+        private static TheTracker Tissuetracker = new TheTracker();
+        private TheTracker() { }
+
+        internal static TheTracker TissueTracker //This verifies we have only one instantiated TissueTracker class and assignments.
+        {
+            get
+            {
+                if (Tissuetracker == null)
+                    Tissuetracker = new TheTracker();
+
+                return Tissuetracker;
+            }
+        }
+
+        internal void ExcelStartup()
+        {
+            oXL = new Excel.Application();
+
+            string myWorkbook = @"C:\Users\Zach\Desktop\New1.xlsx";
+            oWB = oXL.Workbooks.Open(myWorkbook);
+
+
+            //Set sheets by index. Show Excel workbook that we opened above
+            archivalTracker = oWB.Worksheets[1];
+            freshTracker = oWB.Worksheets[2];
+            sourceTracker = oWB.Worksheets[3];
+            oXL.Visible = true;
+            oXL.UserControl = true;
+        }
+    }
 }
+
+
+
 
 //Attempting to detect and hook to an opened workbook to either close the previous one or read/write from it.
 /*bool wbOpened = ((Excel.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Excel.Application")).Workbooks.Cast<Excel.Workbook>().FirstOrDefault(x => x.Name == myWorkbook) != null;

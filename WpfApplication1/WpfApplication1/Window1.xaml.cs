@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Excel = Microsoft.Office.Interop.Excel;
-using UsingTheTracker = Tissue_Dashboard.MainWindow.TheTracker;
+using UsingTheTracker = Tissue_Dashboard.TheTracker;
 
 
 namespace Tissue_Dashboard
