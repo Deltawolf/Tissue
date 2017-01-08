@@ -13,16 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1
+namespace Tissue_Dashboard
 {
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class ArchivalPage : Page
     {
-        public Page1()
+        public ArchivalPage()
         {
-            InitializeComponent();
+            
+        }
+
+        private void Request_Tissue_Button(object sender, RoutedEventArgs e)
+        {
+
+            Request_Window tissueRequest = new Request_Window(); //New Request Userform
+            tissueRequest.Show();
+            Application.Current.MainWindow.Visibility = Visibility.Collapsed; //Hide Main Dashboard
         }
     }
 }

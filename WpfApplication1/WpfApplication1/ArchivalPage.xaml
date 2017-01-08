@@ -1,4 +1,4 @@
-﻿<Page x:Class="WpfApplication1.Page1"
+﻿<Page x:Class="Tissue_Dashboard.ArchivalPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,10 @@
       xmlns:local="clr-namespace:WpfApplication1"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Page1">
+      Title="ArchivalPage">
 
-    <Grid x:Name="ArchivalPage" Background="#FF082D7C">
-        
+    <Grid x:Name="Archival_Page_Grid" Background="WhiteSmoke">
+        <Button Content="Request Tissue" Height="30" Width="110" Margin="60,75,0,0" Click="Request_Tissue_Button" BorderThickness="2" ToolTip="This is how you begin a tissue request!" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Top" Background="#FF6CC3FF" BorderBrush="White" Foreground="White"/>
+
     </Grid>
 </Page>

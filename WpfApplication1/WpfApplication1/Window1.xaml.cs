@@ -27,7 +27,7 @@ namespace Tissue_Dashboard
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void Request_Accept_Click(object sender, RoutedEventArgs e)
         {
             UsingTheTracker.TissueTracker.archivalTracker.Rows[3].Insert();
             UsingTheTracker.TissueTracker.archivalTracker.Cells[3, 1].value = patientText.Text; //Textbox value as Text. Exception occurrs without .Text
@@ -39,8 +39,7 @@ namespace Tissue_Dashboard
 
             Window parentwin = Request_Window.GetWindow(this);
             parentwin.Close();
-            UsingTheTracker.TissueTracker.main_window.Visibility = Visibility.Visible;
-            
+            Application.Current.MainWindow.Visibility = Visibility.Visible;
 
         }
     }

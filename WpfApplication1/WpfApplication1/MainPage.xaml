@@ -1,4 +1,4 @@
-﻿<Page x:Class="WpfApplication1.Main"
+﻿<Page x:Name="Main_Page" x:Class="Tissue_Dashboard.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,11 @@
       xmlns:local="clr-namespace:WpfApplication1"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="Main">
+      Title="MainPage">
 
-    <Grid x:Name="MainPage" Background="#FFE61616">
-        
+    <Grid x:Name="Main_Page_Grid" Background="WhiteSmoke">
+        <StackPanel>
+            <DataGrid x:Name="Recent_Requests"  HorizontalAlignment="Left" Height="140" Margin="27,60,0,0" Width="244"/>
+        </StackPanel>
     </Grid>
 </Page>

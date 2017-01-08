@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfAppli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6FAFF6DA-CD5E-4050-9352-8C85814A7B0B}"
 	ProjectSection(SolutionItems) = preProject
+		E:\Libraries\Pictures\Back_Arrow.png = E:\Libraries\Pictures\Back_Arrow.png
 		E:\Libraries\Pictures\SC_logo_tag_pms_color.jpg = E:\Libraries\Pictures\SC_logo_tag_pms_color.jpg
 	EndProjectSection
 EndProject

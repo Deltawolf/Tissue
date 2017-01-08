@@ -22,7 +22,7 @@ namespace Tissue_Dashboard
     /// </summary>
     /// 
 
-//Main Functions and Objects
+    //Main Functions and Objects
     public partial class MainWindow : Window
     {
 
@@ -33,21 +33,10 @@ namespace Tissue_Dashboard
             TheTracker.TissueTracker.ExcelStartup();
             this.Closed += new EventHandler(MainWindow_Closed); //This is an event used to save and close excel
             MouseDown += Window_MouseDown;
+
         }
 
         
-
-        private void button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-            Request_Window tissueRequest = new Request_Window(); //New Request Userform
-            tissueRequest.Show();
-            TheTracker.TissueTracker.main_window = this;
-            TheTracker.TissueTracker.main_window.Visibility = Visibility.Collapsed; //Hide Main Dashboard
-        }
-
-        
-
     }
 
 //Events handled in Main
@@ -59,6 +48,13 @@ namespace Tissue_Dashboard
                 this.DragMove();
         }
 
+        private void Back_Button(object sender, MouseButtonEventArgs e)
+        {
+            if (BrowserMain.NavigationService.CanGoBack)
+            {
+                BrowserMain.NavigationService.GoBack();
+            }
+        }
 
         private void Main_Frame_MouseClick(object sender, MouseButtonEventArgs e)
         {
@@ -96,7 +92,7 @@ namespace Tissue_Dashboard
 //Excel Instance Class
     internal class TheTracker
     {
-        public Window main_window { get; set; }
+        
         public Excel.Application oXL { get; set; }
         public Excel.Workbook oWB { get; set; }
         public Excel.Worksheets oWS { get; set; } //This is a collection

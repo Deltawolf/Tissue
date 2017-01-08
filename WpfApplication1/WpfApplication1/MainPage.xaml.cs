@@ -13,16 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1
+namespace Tissue_Dashboard
 {
     /// <summary>
     /// Interaction logic for Main.xaml
     /// </summary>
-    public partial class Main : Page
+    public partial class MainPage : Page
     {
-        public Main()
-        {
-            InitializeComponent();
-        }
+        //public Main()
+        //{
+        //    InitializeComponent();
+
+        //}
+
+        
     }
 }
