@@ -9,8 +9,21 @@
       Title="MainPage">
 
     <Grid x:Name="Main_Page_Grid" Background="WhiteSmoke">
-        <StackPanel>
-            <DataGrid x:Name="Recent_Requests"  HorizontalAlignment="Left" Height="140" Margin="27,60,0,0" Width="244"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="Recent_Requests" Grid.Column="1" Grid.ColumnSpan="3"  Grid.Row="1" Grid.RowSpan="3" d:LayoutOverrides="Width"/>
     </Grid>
 </Page>
