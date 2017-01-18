@@ -93,6 +93,7 @@ namespace Tissue_Dashboard
     internal class TheTracker
     {
         
+        public string myWorkbook { get; set; }
         public Excel.Application oXL { get; set; }
         public Excel.Workbook oWB { get; set; }
         public Excel.Worksheets oWS { get; set; } //This is a collection
@@ -118,8 +119,8 @@ namespace Tissue_Dashboard
         internal void ExcelStartup()
         {
             oXL = new Excel.Application();
-
-            string myWorkbook = @"C:\Users\Zach\Desktop\New1.xlsx";
+            
+            myWorkbook = @"C:\Users\Zach\Desktop\New1.xlsx";
             if (Environment.UserName == "LZU7764")
                 myWorkbook = @"C:\Users\LZU7764\Desktop\New.xlsx";
             oWB = oXL.Workbooks.Open(myWorkbook);

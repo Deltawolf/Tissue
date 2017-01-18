@@ -24,6 +24,6 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="Recent_Requests" Grid.Column="1" Grid.ColumnSpan="3"  Grid.Row="1" Grid.RowSpan="3" d:LayoutOverrides="Width"/>
+        <DataGrid x:Name="Recent_Requests" Loaded="data_grid_constructor" AutoGenerateColumns="True" Grid.Column="1" Grid.ColumnSpan="3"  Grid.Row="1" Grid.RowSpan="3" d:LayoutOverrides="Width" CanUserAddRows="False" AlternatingRowBackground="#FFA3E1F3" RowBackground="#FFE8F0F1" GridLinesVisibility="Horizontal" />
     </Grid>
 </Page>
