@@ -37,10 +37,11 @@ namespace Tissue_Dashboard
                 OleDbCommand oconnection = new OleDbCommand("Select `Patient Name`, FORMAT([Date of Birth], 'dd MMM yyyy') As [Date of Birth] From [" + sheet + "$] Where Status=\"Requested\"", connection);
 
                 connection.Open();
-
-                OleDbDataAdapter connectiondataAdapter = new OleDbDataAdapter(oconnection); //What?
+                //https://msdn.microsoft.com/en-us/library/bh8kx08z(v=vs.110).aspx - Datasets and DataAdapters
+                OleDbDataAdapter connectiondataAdapter = new OleDbDataAdapter(oconnection); //oconnection SQL command will return data that fill n
                 DataTable data = new DataTable(); //What?
                 connectiondataAdapter.Fill(data);
+
                 Recent_Requests.ItemsSource = data.DefaultView;
 
             }
