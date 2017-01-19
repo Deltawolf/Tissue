@@ -33,11 +33,13 @@ namespace Tissue_Dashboard
                 String connectionstring = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + TheTracker.TissueTracker.myWorkbook + ";Extended Properties='Excel 12.0 Xml;HDR=YES;';";
 
                 OleDbConnection connection = new OleDbConnection(connectionstring);
-                OleDbCommand oconnection = new OleDbCommand("Select `Patient Name`, `Date of Birth` From [" + sheet + "$] Where Status=\"Requested\"", connection);
+                //Can use [] or `` to enclose a name. Patient Name is read as Select Patient because of the space. Either use Patient_Name or change SQL Statement to [Patient Name] to properly select
+                OleDbCommand oconnection = new OleDbCommand("Select `Patient Name`, FORMAT([Date of Birth], 'dd MMM yyyy') As [Date of Birth] From [" + sheet + "$] Where Status=\"Requested\"", connection);
+
                 connection.Open();
 
-                OleDbDataAdapter connectiondataAdapter = new OleDbDataAdapter(oconnection);
-                DataTable data = new DataTable();
+                OleDbDataAdapter connectiondataAdapter = new OleDbDataAdapter(oconnection); //What?
+                DataTable data = new DataTable(); //What?
                 connectiondataAdapter.Fill(data);
                 Recent_Requests.ItemsSource = data.DefaultView;
 

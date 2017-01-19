@@ -22,7 +22,7 @@ namespace Tissue_Dashboard
     /// </summary>
     /// 
 
-    //Main Functions and Objects
+//Main Functions and Objects
     public partial class MainWindow : Window
     {
 
@@ -123,6 +123,7 @@ namespace Tissue_Dashboard
             myWorkbook = @"C:\Users\Zach\Desktop\New1.xlsx";
             if (Environment.UserName == "LZU7764")
                 myWorkbook = @"C:\Users\LZU7764\Desktop\New.xlsx";
+
             oWB = oXL.Workbooks.Open(myWorkbook);
 
 
