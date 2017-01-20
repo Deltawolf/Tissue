@@ -6,6 +6,27 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="Tissue Request" Height="405.568" Width="453.525">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Width" Value="75"/>
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="91"/>
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FontSize" Value="8"/>
+        </Style>
+        
+    </Window.Resources>
+
     <Grid x:Name="Tissue_Request">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="210*"/>
@@ -14,18 +35,20 @@
         <Image x:Name="image" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="365" Source="SC_logo_tag_pms_color.jpg" Margin="41,144,0,0"/>
 
         <Button x:Name="button" Content="Accept" HorizontalAlignment="Left" Height="25" Margin="339,329,0,0" VerticalAlignment="Top" Width="67" Click="Request_Accept_Click"/>
-        <TextBox x:Name="patientText" HorizontalAlignment="Left" Height="20" Margin="96,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" AutomationProperties.IsRequiredForForm="True"/>
-        <TextBox x:Name="physicianText" HorizontalAlignment="Left" Height="20" Margin="302,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="accessionText" HorizontalAlignment="Left" Height="20" Margin="96,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" FontSize="10"/>
-        <TextBox x:Name="enrollmentText" HorizontalAlignment="Left" Height="20" Margin="302,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="requestorText" HorizontalAlignment="Left" Height="20" Margin="96,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.523,-0.641"/>
-        <TextBox x:Name="dateofbirthText" HorizontalAlignment="Left" Height="20" Margin="302,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
-        <Label x:Name="accessionLabel" Content="Accession" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="20" Margin="0,45,0,0" VerticalAlignment="Top" Width="91" FontSize="8"/>
-        <Label x:Name="requestorLabel" Content="Requestor" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="20" Margin="0,79,0,0" VerticalAlignment="Top" Width="91" FontSize="8"/>
-        <Label x:Name="patientLabel" Content="Patient Name" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="20" Margin="0,10,0,0" VerticalAlignment="Top" Width="91" FontSize="8"/>
-        <Label x:Name="physicianLabel" Content="Physician" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="20" Margin="211,12,0,0" VerticalAlignment="Top" Width="91" FontSize="8"/>
-        <Label x:Name="criteriaLabel" Content="Enrollment Criteria" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="20" Margin="211,45,0,0" VerticalAlignment="Top" Width="91" FontSize="8"/>
-        <Label x:Name="birthLabel" Content="Date of Birth" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="20" Margin="211,79,0,0" Width="91" VerticalAlignment="Top" FontSize="8"/>
+
+        
+        <TextBox x:Name="patientText"     Margin="96,10,0,0"  AutomationProperties.IsRequiredForForm="True"/>
+        <TextBox x:Name="physicianText"   Margin="302,12,0,0" />
+        <TextBox x:Name="accessionText"   Margin="96,45,0,0" />
+        <TextBox x:Name="enrollmentText"  Margin="302,45,0,0" />
+        <TextBox x:Name="requestorText"   Margin="96,79,0,0" />
+        <TextBox x:Name="dateofbirthText" Margin="302,79,0,0" />
+        <Label x:Name="accessionLabel" Content="Accession"  Margin="0,45,0,0" />
+        <Label x:Name="requestorLabel" Content="Requestor"  Margin="0,79,0,0" />
+        <Label x:Name="patientLabel" Content="Patient Name"  Margin="0,10,0,0" />
+        <Label x:Name="physicianLabel" Content="Physician"  Margin="211,12,0,0" />
+        <Label x:Name="criteriaLabel" Content="Enrollment Criteria"  Height="20" Margin="211,45,0,0" />
+        <Label x:Name="birthLabel" Content="Date of Birth"  Margin="211,79,0,0" />
 
     </Grid>
 </Window>

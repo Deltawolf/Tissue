@@ -5,11 +5,179 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApplication1"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="484.518" d:DesignWidth="600"
       Title="ArchivalPage">
+    <Page.Resources>
+
+
+        <Style TargetType="{x:Type Button}">
+           
+            <Setter Property="BorderThickness" Value="50"/>
+            <Setter Property="FontStretch" Value="Expanded"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontStretch" Value="Normal" />
+            <Setter Property="Background" Value="#FF6CC3FF" />
+            <Setter Property="BorderBrush" Value="Black" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            
+        </Style>
+        
+
+
+    </Page.Resources>
+
 
     <Grid x:Name="Archival_Page_Grid" Background="WhiteSmoke">
-        <Button Content="Request Tissue" Height="30" Width="110" Margin="60,75,0,0" Click="Request_Tissue_Button" BorderThickness="2" ToolTip="This is how you begin a tissue request!" Cursor="Hand" FontWeight="Bold" HorizontalAlignment="Left"  VerticalAlignment="Top" Background="#FF6CC3FF" BorderBrush="White" Foreground="White"/>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*" x:Name="middleRow"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Archival Actions" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="5" FontSize="34" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="OliveDrab" BorderBrush="Black" BorderThickness="3"/>
+        <Button Grid.Column="1" Grid.Row="2"  Click="Request_Tissue_Button"  ToolTip="This is how you begin a tissue request!">
+            <Viewbox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="col"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="row"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Padding="2"   Text="Request Tissue"/>
+                </Grid>
+
+            </Viewbox>
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="4" >
+            <Viewbox >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="col"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="row"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Padding="2"   Text="Receive Slides"/>
+                </Grid>
+            </Viewbox>
+        </Button>
+    
+        <Button  Grid.Column="1" Grid.Row="6" >
+            <Viewbox >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="col"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="row"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Padding="2"   Text="Receive Blocks"/>
+                </Grid>
+            </Viewbox>
+        </Button>
+        
+        <Button Grid.Column="1" Grid.Row="8" >
+            <Viewbox  >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="col"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="row"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Padding="2"  Text="Send to Processing"/>
+                </Grid>
+            </Viewbox>
+        </Button>
+        
+        <Button  Grid.Column="1" Grid.Row="10">
+            <Viewbox >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="col"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="row"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Padding="2"  Text="Create an Airbill"/>
+                </Grid>
+            </Viewbox>
+        </Button>
+            
+
+        <Button Grid.Column="5" Grid.Row="2" >
+            <Viewbox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="col"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="row"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Padding="2" Text="Ship Tissue"/>
+                </Grid>
+            </Viewbox>
+        </Button>
+        
+        <Button  Grid.Column="5" Grid.Row="4" >
+            <Viewbox >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="col"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="row"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Padding="2"   Text="Call for Follow Ups"/>
+                </Grid>
+            </Viewbox>
+        </Button>
+        
+        <Button  Grid.Column="5" Grid.Row="6" >
+            <Viewbox >
+                <TextBlock Padding="2"   Text="Send Tissue Alert"/>
+            </Viewbox>
+        </Button>
+        
+        <Button Grid.Column="5" Grid.Row="8" >
+            <Viewbox >
+                <TextBlock Padding="2"   Text="Post a Notice"/>
+            </Viewbox>
+        </Button>
+        
+        <Button  Grid.Column="5" Grid.Row="10" >
+            <Viewbox >
+                <TextBlock Padding="2"   Text="Search the Tracker"/>
+            </Viewbox>
+        </Button>
     </Grid>
 </Page>
